@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { newsData } from "./data/newsData";
+import styles from "./Lists.module.css";
 
 export default class Lists extends Component {
   constructor(props) {
@@ -13,28 +14,28 @@ export default class Lists extends Component {
     const { news } = this.state;
     return this.state.news.map((n) => {
       return (
-        <article className="news-card">
-          <div className="news-header">
-            <img className="imgBg" src={n.headerBgSrc} alt={n.title} />
+        <article className={styles.newsCard}>
+          <div className={styles.newsHeader}>
+            <img className={styles.imgBg} src={n.headerBgSrc} alt={n.title} />
 
-            <div className="header-content">
-              <h2 className="title">{n.title}</h2>
+            <div className={styles.headerContent}>
+              <h2 className={styles.title}>{n.title}</h2>
 
-              <div className="actions">
-                <button className="btn-actions">
+              <div className={styles.actions}>
+                <button className={styles.btnActions}>
                   <i className="fa-solid fa-heart"></i>
                 </button>
-                <button className="btn-actions">
+                <button className={styles.btnActions}>
                   <i className="fa-solid fa-trash"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="news-body">
-            <span className="category">{n.category}</span>
+          <div className={styles.newsBody}>
+            <span className={styles.category}>{n.category}</span>
             <p>{n.body}</p>
-            <span className="date">{n.date}</span>
+            <span className={styles.date}>{n.date}</span>
           </div>
         </article>
       );

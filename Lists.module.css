@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.newsCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: grey 0 0 5px;
+  margin: 10px;
+  padding: 15px;
+}
+
+.newsCardActive {
+  box-shadow: rgb(0, 145, 255) 1px 1px 10px;
+}
+
+.newsHeader {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.imgBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+}
+
+.actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.btnActions {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnActionsLiked {
+  color: palevioletred;
+}
+
+.newsBody {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.category {
+  text-transform: uppercase;
+  color: gray;
+}
+
+.date {
+  color: gray;
+  margin-left: auto;
+}
