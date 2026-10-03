@@ -10,11 +10,31 @@ export default class Lists extends Component {
       news: newsData,
     };
   }
+
+  toggleSelect = (id) => {
+    const { news } = this.state;
+    const updatedNews = news.map((n) => {
+      if (n.id === id) {
+        return { ...n, isSelected: !n.isSelected };
+      }
+      return n;
+    });
+
+    this.setState({ news: updatedNews });
+  };
+
   render() {
     const { news } = this.state;
-    return this.state.news.map((n) => {
+
+    return news.map((n) => {
+      const togglenewsCard = `${styles.newsCard} ${n.isSelected ? styles.newsCardActive : ""}`;
+
       return (
-        <article className={styles.newsCard}>
+        <article
+          key={n.id}
+          onClick={() => this.toggleSelect(n.id)}
+          className={togglenewsCard}
+        >
           <div className={styles.newsHeader}>
             <img className={styles.imgBg} src={n.headerBgSrc} alt={n.title} />
 
