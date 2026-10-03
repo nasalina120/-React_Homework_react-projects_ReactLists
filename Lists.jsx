@@ -23,11 +23,19 @@ export default class Lists extends Component {
     this.setState({ news: updatedNews });
   };
 
+  deleteItems = (id, e) => {
+    e.stopPropagation();
+    const { news } = this.state;
+    const updatedNews = news.filter((n) => n.id !== id);
+    this.setState({ news: updatedNews });
+    return updatedNews;
+  };
+
   render() {
     const { news } = this.state;
 
     return news.map((n) => {
-      const togglenewsCard = `${styles.newsCard} ${n.isSelected ? styles.newsCardActive : ""}`;
+      const togglenewsCard = `${styles.newsCard} ${n.isSelected && styles.newsCardActive}`;
 
       return (
         <article
@@ -45,7 +53,10 @@ export default class Lists extends Component {
                 <button className={styles.btnActions}>
                   <i className="fa-solid fa-heart"></i>
                 </button>
-                <button className={styles.btnActions}>
+                <button
+                  onClick={(e) => this.deleteItems(n.id, e)}
+                  className={styles.btnActions}
+                >
                   <i className="fa-solid fa-trash"></i>
                 </button>
               </div>
