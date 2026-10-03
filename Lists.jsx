@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { newsData } from "./data/newsData";
 import styles from "./Lists.module.css";
+import classNames from "classnames";
 
 export default class Lists extends Component {
   constructor(props) {
@@ -35,8 +36,9 @@ export default class Lists extends Component {
     const { news } = this.state;
 
     return news.map((n) => {
-      const togglenewsCard = `${styles.newsCard} ${n.isSelected && styles.newsCardActive}`;
-
+      const togglenewsCard = classNames(styles.newsCard, {
+        [styles.newsCardActive]: n.isSelected,
+      });
       return (
         <article
           key={n.id}
