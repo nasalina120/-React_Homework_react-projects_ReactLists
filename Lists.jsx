@@ -30,7 +30,6 @@ export default class Lists extends Component {
     const { news } = this.state;
     const updatedNews = news.filter((n) => n.id !== id);
     this.setState({ news: updatedNews });
-    return updatedNews;
   };
 
   render() {
